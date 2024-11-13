@@ -1,0 +1,4 @@
+arquivos/fila21.txt
+arquivos/fila22.txt
+arquivos/fila23.txt
+arquivos/fila24.txt

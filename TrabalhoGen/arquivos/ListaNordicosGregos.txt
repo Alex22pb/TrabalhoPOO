@@ -1,0 +1,4 @@
+arquivos/fila11.txt
+arquivos/fila12.txt
+arquivos/fila13.txt
+arquivos/fila14.txt
