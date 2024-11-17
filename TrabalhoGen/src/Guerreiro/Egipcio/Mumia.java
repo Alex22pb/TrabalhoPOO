@@ -6,6 +6,7 @@ package Guerreiro.Egipcio;
 
 import Ajuda.QuestoesDoTrabalho;
 import Guerreiro.Guerreiro;
+import Guerreiro.Nordico.GiganteDePedra;
 import java.util.ArrayList;
 
 /**
@@ -27,7 +28,10 @@ public class Mumia extends Egipcio{
             if (defensor.getEnergia() <= 0) {
                 Guerreiro Zumbi = new MortoVivo(defensor.getNome(), defensor.getIdade(), defensor.getPeso());
                 listaAtacante.get(posAtk).add(Zumbi);
-                defensor.morrer(listaDefesa, this.getIndiceProvocado());
+                 if (defensor instanceof GiganteDePedra) {
+                    ((GiganteDePedra) defensor).tirarProvocar(listaAtacante, posDef);
+                    defensor.morrer(listaDefesa, posDef);
+                }
             }
         } else {
             Guerreiro defensor = listaDefesa.get(posDef).get(0);

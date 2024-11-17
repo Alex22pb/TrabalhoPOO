@@ -104,6 +104,7 @@ public class Arena {
                 Guerreiro g = lista.get(i).get(0);
                 if(g.isProvocado()){
                     g.setProvocado(false);
+                    g.setIndiceProvocado(-1);
                 }
                 lista.get(i).remove(0);
             }

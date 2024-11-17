@@ -6,6 +6,7 @@ package Guerreiro.Atlantico;
 
 import Ajuda.QuestoesDoTrabalho;
 import Guerreiro.Guerreiro;
+import Guerreiro.Nordico.GiganteDePedra;
 import java.util.ArrayList;
 
 /**
@@ -20,14 +21,20 @@ public class Satiro extends Atlantico{
     
     @Override
     public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef) {
-        if (this.isProvocado()){
-            ArrayList<Guerreiro> filaDefensor = listaDefesa.get(this.getIndiceProvocado());
+        if (this.isProvocado()) {
+            posDef = this.getIndiceProvocado();
+            ArrayList<Guerreiro> filaDefensor = listaDefesa.get(posDef);
             for (int i = 0; i < filaDefensor.size(); i++) {
                 Guerreiro g = filaDefensor.get(i);
                 QuestoesDoTrabalho.morreuMatou(this, g);
                 g.setEnergia(g.getEnergia() - 10);
                 if (g.getEnergia() <= 0) {
-                    g.morrer(listaDefesa, listaDefesa.indexOf(filaDefensor));
+                    if (g instanceof GiganteDePedra) {
+                        ((GiganteDePedra) g).tirarProvocar(listaAtacante, posDef);
+                        g.morrer(listaDefesa, posDef);
+                    }else{
+                        g.morrer(listaDefesa, posDef);
+                    }
                 }
             }
         } else {

@@ -42,11 +42,21 @@ public class GiganteDePedra extends Nordico{
             }
         }
     }
-
-
     
     @Override
     public void morrer(ArrayList<ArrayList<Guerreiro>> lista, int posDef){
         lista.get(posDef).remove(this);
+    }
+    
+    public void tirarProvocar(ArrayList<ArrayList<Guerreiro>> lista, int posicaoProvocado){
+        for(int i = 0; i < lista.size();i++){
+            if(!lista.get(i).isEmpty()){
+                Guerreiro g = lista.get(i).get(0);
+                if(g.isProvocado() && g.getIndiceProvocado() == posicaoProvocado){
+                    g.setProvocado(false);
+                    g.setIndiceProvocado(-1);
+                }
+            }
+        }
     }
 }

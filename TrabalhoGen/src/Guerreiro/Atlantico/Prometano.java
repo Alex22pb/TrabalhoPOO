@@ -6,6 +6,7 @@ package Guerreiro.Atlantico;
 
 import Ajuda.QuestoesDoTrabalho;
 import Guerreiro.Guerreiro;
+import Guerreiro.Nordico.GiganteDePedra;
 import java.util.ArrayList;
 
 /**
@@ -19,13 +20,17 @@ public class Prometano extends Atlantico{
     }
     
     @Override
-    public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef){
+    public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef) {
         if (this.isProvocado()) {
-            Guerreiro defensor = listaDefesa.get(this.getIndiceProvocado()).get(0);
+            posDef = this.getIndiceProvocado();
+            Guerreiro defensor = listaDefesa.get(posDef).get(0);
             QuestoesDoTrabalho.morreuMatou(this, defensor);
             defensor.setEnergia(defensor.getEnergia() - 10);
             if (defensor.getEnergia() <= 0) {
-                defensor.morrer(listaDefesa, this.getIndiceProvocado());
+                if (defensor instanceof GiganteDePedra) {
+                    ((GiganteDePedra) defensor).tirarProvocar(listaAtacante, posDef);
+                    defensor.morrer(listaDefesa, posDef);
+                }
             }
         } else {
             Guerreiro defensor = listaDefesa.get(posDef).get(0);
@@ -34,7 +39,7 @@ public class Prometano extends Atlantico{
             if (defensor.getEnergia() <= 0) {
                 defensor.morrer(listaDefesa, posDef);
             }
-        }       
+        }
     }
     
     @Override
