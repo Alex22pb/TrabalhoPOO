@@ -87,8 +87,8 @@ public class LeituraArquivos {
                 while (scanGuerreiro.hasNext()) {
                     lado = scanGuerreiro.nextInt();
                     nome = scanGuerreiro.next();
-                    peso = scanGuerreiro.nextDouble();
                     idade = scanGuerreiro.nextInt();
+                    peso = scanGuerreiro.nextDouble();
 
                     Guerreiro g = null;
 

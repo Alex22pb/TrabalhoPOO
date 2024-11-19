@@ -49,7 +49,7 @@ public class Mumia extends Egipcio{
     
     @Override
     public void morrer(ArrayList<ArrayList<Guerreiro>> lista, int posDef){
-        for(int i = lista.size()/2; i < lista.size(); i++ ){
+        for(int i = 0; i < lista.size(); i++ ){
            Guerreiro Vingador = new Anubita(this.getNome(),0, 60);
            lista.get(i).add(Vingador);
         }

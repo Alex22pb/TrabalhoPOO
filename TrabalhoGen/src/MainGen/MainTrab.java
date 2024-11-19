@@ -26,9 +26,13 @@ public class MainTrab {
         System.out.println("\n=======| Dados Dos Guerreiros |======\n");
         QuestoesDoTrabalho.exibirDadosGuerreiros(Arena.getListaNG(), Arena.getListaAE());
 
-        double maiorPeso = QuestoesDoTrabalho.somaPesos(Arena.getListaNG(), Arena.getListaAE());
-        System.out.println("\n=======| Soma Dos Pesos |======");
-        System.out.println("A soma dos pesos de todos os guerreiros e: " + maiorPeso);
+        double maiorPesoNG = QuestoesDoTrabalho.somaPesos(Arena.getListaNG());
+        System.out.println("\n=======| Soma Dos Pesos Dos Gregos e Nórdicos |======");
+        System.out.println("A soma dos pesos de todos os guerreiros e: " + maiorPesoNG);
+        
+        double maiorPesoAE = QuestoesDoTrabalho.somaPesos(Arena.getListaAE());
+        System.out.println("\n=======| Soma Dos Pesos Dos Atlánticos e Egipcios|======");
+        System.out.println("A soma dos pesos de todos os guerreiros e: " + maiorPesoAE);
 
         QuestoesDoTrabalho.maisVelho(Arena.getListaNG(), Arena.getListaAE());
 

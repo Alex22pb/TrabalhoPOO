@@ -32,6 +32,9 @@ public class GiganteDePedra extends Nordico{
             QuestoesDoTrabalho.morreuMatou(this, defensor);
 
             defensor.setEnergia(defensor.getEnergia() - 30);
+            if(defensor.getEnergia() <= 0){
+                defensor.morrer(listaDefesa, posDef);
+            }
 
             for (int i = 0; i < listaDefesa.size(); i++) {
                 if (!listaDefesa.get(i).isEmpty()) {

@@ -21,13 +21,9 @@ public class Anubita extends Egipcio{
     
     @Override
     public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef) {
-        if (this.isProvocado() && !listaDefesa.get(this.getIndiceProvocado()).isEmpty()) {
+        if (this.isProvocado()){
             posDef = this.getIndiceProvocado();
             ArrayList<Guerreiro> filaDefensor = listaDefesa.get(posDef);
-            if(filaDefensor.isEmpty()){
-                System.out.println("TAVAZIATAVAZIA");
-                System.out.println("TAVAZIATAVAZIA");
-            }
             Guerreiro defender = filaDefensor.get(0);
             QuestoesDoTrabalho.morreuMatou(this, defender);
             defender.setEnergia(defender.getEnergia() - 15);

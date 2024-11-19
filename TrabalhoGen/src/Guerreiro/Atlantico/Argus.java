@@ -24,10 +24,6 @@ public class Argus extends Atlantico{
     public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef){
         if (this.isProvocado()){// && !listaDefesa.get(this.getIndiceProvocado()).isEmpty()) {
             posDef = this.getIndiceProvocado();
-            if(listaDefesa.get(posDef).isEmpty()){
-                System.out.println("TAVAZIATAVAZIA");
-                System.out.println("TAVAZIATAVAZIA");
-            }
             Guerreiro defensor = listaDefesa.get(posDef).get(0);
             QuestoesDoTrabalho.morreuMatou(this, defensor);
             if(defensor instanceof GiganteDePedra){

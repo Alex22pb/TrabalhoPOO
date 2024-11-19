@@ -32,6 +32,9 @@ public class Valquiria extends Nordico{
             QuestoesDoTrabalho.morreuMatou(this, defensor);
 
             defensor.setEnergia(defensor.getEnergia() - 20);
+            if(defensor.getEnergia() <= 0){
+                defensor.morrer(listaDefesa, posDef);
+            }
 
             ArrayList<Guerreiro> filaAtacante = listaAtacante.get(posAtk);
 

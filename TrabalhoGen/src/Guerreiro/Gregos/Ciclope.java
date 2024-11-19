@@ -33,6 +33,11 @@ public class Ciclope extends Grego{
             ArrayList<Guerreiro> filaDefensor = listaDefesa.get(posDef);
             defensor.setEnergia(defensor.getEnergia() - 35);
 
+            if(defensor.isProvocado()){
+                defensor.setIndiceProvocado(-1);
+                defensor.setProvocado(false);
+            }
+            
             if (defensor.getEnergia() <= 0) {
                 defensor.morrer(listaDefesa, posDef);
             } else {

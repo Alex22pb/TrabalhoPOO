@@ -33,6 +33,9 @@ public class Manticora extends Grego{
             QuestoesDoTrabalho.morreuMatou(this, defensor);
 
             defensor.setEnergia(defensor.getEnergia() - 30);
+            if(defensor.getEnergia() <= 0){
+                defensor.morrer(listaDefesa, posDef);
+            }
 
             if (posDef == 0) {
                 if (!listaDefesa.get(posDef + 1).isEmpty()) {

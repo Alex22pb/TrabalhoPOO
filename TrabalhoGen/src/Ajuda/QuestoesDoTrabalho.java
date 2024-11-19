@@ -41,32 +41,26 @@ public class QuestoesDoTrabalho {
 
     public static void exibirDadosGuerreiros(ArrayList<ArrayList<Guerreiro>> listaNG, ArrayList<ArrayList<Guerreiro>> listaAE) {
 
-        System.out.println("============= Guerreiros Gregos e Nórdicos =============");
+        System.out.println("============= Guerreiros Gregos e Nórdicos =============\n");
 
         for (ArrayList<Guerreiro> vetor : listaNG) {
             for (Guerreiro g : vetor) {
-                System.out.println("Nome: " + g.getNome() + " Idade: " + g.getIdade() + " Peso: " + g.getPeso() + " Energia: " + g.getEnergia());
+                System.out.println("Nome: " + g.getClass().getSimpleName()+ " " + g.getNome() + " Idade: " + g.getIdade() + " Peso: " + g.getPeso() + " Energia: " + g.getEnergia());
             }
         }
 
-        System.out.println("\n============= Guerreiros Atlanticos e Egípcios =============");
+        System.out.println("\n============= Guerreiros Atlanticos e Egípcios =============\n");
 
         for (ArrayList<Guerreiro> vetor : listaAE) {
             for (Guerreiro g : vetor) {
-                System.out.println("Nome: " + g.getNome() + " Idade: " + g.getIdade() + " Peso: " + g.getPeso() + " Energia: " + g.getEnergia());
+                System.out.println("Nome: " + g.getClass().getSimpleName() + " " + g.getNome() + " Idade: " + g.getIdade() + " Peso: " + g.getPeso() + " Energia: " + g.getEnergia());
             }
         }
     }
 
-    public static double somaPesos(ArrayList<ArrayList<Guerreiro>> listaNG, ArrayList<ArrayList<Guerreiro>> listaAE) {
+    public static double somaPesos(ArrayList<ArrayList<Guerreiro>> lista) {
         double somaPeso = 0;
-        for (ArrayList<Guerreiro> vetor : listaNG) {
-            for (Guerreiro g : vetor) {
-                somaPeso += g.getPeso();
-            }
-        }
-
-        for (ArrayList<Guerreiro> vetor : listaAE) {
+        for (ArrayList<Guerreiro> vetor : lista) {
             for (Guerreiro g : vetor) {
                 somaPeso += g.getPeso();
             }
@@ -105,7 +99,7 @@ public class QuestoesDoTrabalho {
         armazenarVelho = percorrer(listaNG, listaAE, armazenarVelho);
 
         System.out.println("\n=======| Guerreiro Mais Velho |======");
-        System.out.println("Nome: " + armazenarVelho.getNome() + " Idade: " + armazenarVelho.getIdade() + " Peso: " + armazenarVelho.getPeso() + " Energia: " + armazenarVelho.getEnergia());
+        System.out.println("Nome: " + armazenarVelho.getClass().getSimpleName() + " " + armazenarVelho.getNome() + " Idade: " + armazenarVelho.getIdade() + " Peso: " + armazenarVelho.getPeso() + " Energia: " + armazenarVelho.getEnergia());
 
     }
 

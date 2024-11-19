@@ -42,9 +42,7 @@ public class Arena {
             
             if(Sorteio.realizarSorteio() == 1){
                 fimDaPartida = chamarAtaque(ListaNG,ListaAE);
-                verificarMortos(ListaAE);
                 fimDaPartida = chamarAtaque(ListaAE,ListaNG);
-                verificarMortos(ListaNG);
                 fimDaPartida = retornarTamanhoVetor(ListaNG,ListaAE);
                 if(!fimDaPartida){
                     mudarPosicoes(ListaAE);
@@ -52,9 +50,7 @@ public class Arena {
                 }
             }else{
                 fimDaPartida = chamarAtaque(ListaAE,ListaNG);
-                verificarMortos(ListaNG);
                 fimDaPartida = chamarAtaque(ListaNG,ListaAE);
-                verificarMortos(ListaAE);
                 fimDaPartida = retornarTamanhoVetor(ListaNG,ListaAE);
                 if(!fimDaPartida){
                     mudarPosicoes(ListaAE);
@@ -65,18 +61,18 @@ public class Arena {
         }
     }
     
-     public static void verificarMortos(ArrayList<ArrayList<Guerreiro>> lista) {
-        for (int i = 0; i < lista.size(); i++) {
-            ArrayList<Guerreiro> ListaInterna = lista.get(i);
-            for (int j = 0; j < ListaInterna.size(); j++) {
-                Guerreiro defensor = ListaInterna.get(j);
-                if (defensor.getEnergia() <= 0) {
-                    defensor.morrer(lista, i);
-                    ListaInterna.remove(defensor);
-                }
-            }
-        }
-    }
+//     public static void verificarMortos(ArrayList<ArrayList<Guerreiro>> lista) {
+//        for (int i = 0; i < lista.size(); i++) {
+//            ArrayList<Guerreiro> ListaInterna = lista.get(i);
+//            for (int j = 0; j < ListaInterna.size(); j++) {
+//                Guerreiro defensor = ListaInterna.get(j);
+//                if (defensor.getEnergia() <= 0) {
+//                    defensor.morrer(lista, i);
+//                    ListaInterna.remove(defensor);
+//                }
+//            }
+//        }
+//    }
      
     public static boolean retornarTamanhoVetor(ArrayList<ArrayList<Guerreiro>> lista1, ArrayList<ArrayList<Guerreiro>> lista2) {
         int contNG = 0;
