@@ -63,7 +63,6 @@ public class Arena {
             }
             
         }
-        //System.out.println("\n\n=============================== |FIM DA PARTIDA| ===============================\n");
     }
     
      public static void verificarMortos(ArrayList<ArrayList<Guerreiro>> lista) {
@@ -100,12 +99,12 @@ public class Arena {
      public static void mudarPosicoes(ArrayList<ArrayList<Guerreiro>> lista) {
         for (int i = 0; i < lista.size(); i++) {
             if (!lista.get(i).isEmpty()) {
-                lista.get(i).add(lista.get(i).get(0));
                 Guerreiro g = lista.get(i).get(0);
                 if(g.isProvocado()){
                     g.setProvocado(false);
                     g.setIndiceProvocado(-1);
                 }
+                lista.get(i).add(lista.get(i).get(0));
                 lista.get(i).remove(0);
             }
         }

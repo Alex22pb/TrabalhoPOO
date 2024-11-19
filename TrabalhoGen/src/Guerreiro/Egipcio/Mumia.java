@@ -22,7 +22,8 @@ public class Mumia extends Egipcio{
     @Override
     public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef){
         if (this.isProvocado()) {
-            Guerreiro defensor = listaDefesa.get(this.getIndiceProvocado()).get(0);
+            posDef = this.getIndiceProvocado();
+            Guerreiro defensor = listaDefesa.get(posDef).get(0);
             QuestoesDoTrabalho.morreuMatou(this, defensor);
             defensor.setEnergia(defensor.getEnergia() - 10);
             if (defensor.getEnergia() <= 0) {
