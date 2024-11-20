@@ -39,10 +39,10 @@ public class Valquiria extends Nordico{
             ArrayList<Guerreiro> filaAtacante = listaAtacante.get(posAtk);
 
             if ( filaAtacante.size() > 1 && filaAtacante.get(1) != null) {
-                Guerreiro curarGuerreiro = filaAtacante.get(1);
-                curarGuerreiro.setEnergia(curarGuerreiro.getEnergia() + 20);
-                if(curarGuerreiro instanceof Grego){
-                    ((Grego) curarGuerreiro).setarEnergia(curarGuerreiro);
+                Guerreiro GuerreiroQueVaiCurar = filaAtacante.get(1);
+                GuerreiroQueVaiCurar.setEnergia(GuerreiroQueVaiCurar.getEnergia() + 20);
+                if(GuerreiroQueVaiCurar instanceof Grego){
+                    ((Grego) GuerreiroQueVaiCurar).setarEnergia(GuerreiroQueVaiCurar);
                 }
             }
         }

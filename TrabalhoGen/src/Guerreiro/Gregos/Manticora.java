@@ -15,8 +15,7 @@ import java.util.ArrayList;
 public class Manticora extends Grego{
     
     public Manticora(String nome, int idade, double peso) {
-        super(nome, idade, peso);
-        this.setEnergia(60);    
+        super(nome, idade, peso);   
     }
     
     @Override
@@ -40,6 +39,7 @@ public class Manticora extends Grego{
             if (posDef == 0) {
                 if (!listaDefesa.get(posDef + 1).isEmpty()) {
                     Guerreiro defensorAdjacente = listaDefesa.get(posDef + 1).get(0);
+                    QuestoesDoTrabalho.morreuMatou(this, defensorAdjacente);
                     defensorAdjacente.setEnergia(defensorAdjacente.getEnergia() - 15);
                     if (defensorAdjacente.getEnergia() <= 0) {
                         defensorAdjacente.morrer(listaDefesa, posDef + 1);
@@ -48,6 +48,7 @@ public class Manticora extends Grego{
             } else if (posDef == listaDefesa.size() - 1) {
                 if (!listaDefesa.get(posDef - 1).isEmpty()) {
                     Guerreiro defensorAdjacente = listaDefesa.get(posDef - 1).get(0);
+                    QuestoesDoTrabalho.morreuMatou(this, defensorAdjacente);
                     defensorAdjacente.setEnergia(defensorAdjacente.getEnergia() - 15);
                     if (defensorAdjacente.getEnergia() <= 0) {
                         defensorAdjacente.morrer(listaDefesa, posDef - 1);
@@ -56,6 +57,7 @@ public class Manticora extends Grego{
             } else {
                 if (!listaDefesa.get(posDef + 1).isEmpty()) {
                     Guerreiro defensorAdjacente = listaDefesa.get(posDef + 1).get(0);
+                    QuestoesDoTrabalho.morreuMatou(this, defensorAdjacente);
                     defensorAdjacente.setEnergia(defensorAdjacente.getEnergia() - 15);
                     if (defensorAdjacente.getEnergia() <= 0) {
                         defensorAdjacente.morrer(listaDefesa, posDef + 1);
@@ -64,6 +66,7 @@ public class Manticora extends Grego{
 
                 if (!listaDefesa.get(posDef - 1).isEmpty()) {
                     Guerreiro defensorAdjacente = listaDefesa.get(posDef - 1).get(0);
+                    QuestoesDoTrabalho.morreuMatou(this, defensorAdjacente);
                     defensorAdjacente.setEnergia(defensorAdjacente.getEnergia() - 15);
                     if (defensorAdjacente.getEnergia() <= 0) {
                         defensorAdjacente.morrer(listaDefesa, posDef - 1);

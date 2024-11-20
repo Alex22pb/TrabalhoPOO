@@ -4,8 +4,6 @@
  */
 package Ajuda;
 
-import Guerreiro.Atlantico.Atlantico;
-import Guerreiro.Egipcio.Egipcio;
 import Guerreiro.Guerreiro;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,8 +33,6 @@ public class Arena {
     public static void comecarBatalha(){
     
         boolean fimDaPartida = false;
-
-        //System.out.println("\n\n=============================== |JOGO INICIADO| ===============================\n");
         
         while(!fimDaPartida){
             
@@ -60,24 +56,11 @@ public class Arena {
             
         }
     }
-    
-//     public static void verificarMortos(ArrayList<ArrayList<Guerreiro>> lista) {
-//        for (int i = 0; i < lista.size(); i++) {
-//            ArrayList<Guerreiro> ListaInterna = lista.get(i);
-//            for (int j = 0; j < ListaInterna.size(); j++) {
-//                Guerreiro defensor = ListaInterna.get(j);
-//                if (defensor.getEnergia() <= 0) {
-//                    defensor.morrer(lista, i);
-//                    ListaInterna.remove(defensor);
-//                }
-//            }
-//        }
-//    }
-     
+         
     public static boolean retornarTamanhoVetor(ArrayList<ArrayList<Guerreiro>> lista1, ArrayList<ArrayList<Guerreiro>> lista2) {
         int contNG = 0;
         int contAE = 0;
-        for (int i = 0; i < lista1.size() / 2; i++) {
+        for (int i = 0; i < lista1.size(); i++) {
             if (!lista1.get(i).isEmpty()) {
                 contNG++;
             }
@@ -92,7 +75,7 @@ public class Arena {
         return contAE == 0 || contNG == 0;
     }
         
-     public static void mudarPosicoes(ArrayList<ArrayList<Guerreiro>> lista) {
+     public static void mudarPosicoes(ArrayList<ArrayList<Guerreiro>> lista) {//VER SE TA FUNCIONANDO
         for (int i = 0; i < lista.size(); i++) {
             if (!lista.get(i).isEmpty()) {
                 Guerreiro g = lista.get(i).get(0);
@@ -100,8 +83,8 @@ public class Arena {
                     g.setProvocado(false);
                     g.setIndiceProvocado(-1);
                 }
-                lista.get(i).add(lista.get(i).get(0));
-                lista.get(i).remove(0);
+                lista.get(i).add(g);
+                lista.get(i).remove(g);
             }
         }
     }

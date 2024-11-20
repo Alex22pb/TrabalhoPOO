@@ -16,7 +16,6 @@ public abstract class Grego extends Guerreiro{
         super(nome, idade, peso);
     }
     
-    
     public void setarEnergia(Guerreiro g){
         if(g.getEnergia()  > 100){
             g.setEnergia(100);

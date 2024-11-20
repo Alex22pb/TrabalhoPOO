@@ -1,0 +1,4 @@
+6 Matheus 20 80
+4 Alice 19 59
+2 Matheus 32 77
+6 Isabella 27 61

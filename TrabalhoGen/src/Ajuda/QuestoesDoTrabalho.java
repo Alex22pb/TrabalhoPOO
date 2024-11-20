@@ -39,21 +39,12 @@ public class QuestoesDoTrabalho {
         setAtacante(matou);
     }
 
-    public static void exibirDadosGuerreiros(ArrayList<ArrayList<Guerreiro>> listaNG, ArrayList<ArrayList<Guerreiro>> listaAE) {
+    public static void exibirDadosGuerreiros(ArrayList<ArrayList<Guerreiro>> lista) {
 
-        System.out.println("============= Guerreiros Gregos e Nórdicos =============\n");
-
-        for (ArrayList<Guerreiro> vetor : listaNG) {
+        for (ArrayList<Guerreiro> vetor : lista) {
+            System.out.println("\nFila " + (lista.indexOf(vetor)+1) + ":");
             for (Guerreiro g : vetor) {
-                System.out.println("Nome: " + g.getClass().getSimpleName()+ " " + g.getNome() + " Idade: " + g.getIdade() + " Peso: " + g.getPeso() + " Energia: " + g.getEnergia());
-            }
-        }
-
-        System.out.println("\n============= Guerreiros Atlanticos e Egípcios =============\n");
-
-        for (ArrayList<Guerreiro> vetor : listaAE) {
-            for (Guerreiro g : vetor) {
-                System.out.println("Nome: " + g.getClass().getSimpleName() + " " + g.getNome() + " Idade: " + g.getIdade() + " Peso: " + g.getPeso() + " Energia: " + g.getEnergia());
+                System.out.println(g.getClass().getSimpleName()+ ": " + g.getNome() + ", " + g.getIdade() + " anos, " + g.getPeso() + " kilos.");
             }
         }
     }
@@ -68,10 +59,10 @@ public class QuestoesDoTrabalho {
         return somaPeso;
     }
 
-    public static Guerreiro percorrer(ArrayList<ArrayList<Guerreiro>> listaNG, ArrayList<ArrayList<Guerreiro>> listaAE, Guerreiro g) {
+    public static Guerreiro percorrer(ArrayList<ArrayList<Guerreiro>> lista, Guerreiro g) {
         Guerreiro maisVelho = g;
         int idadeMaior = maisVelho.getIdade();
-        for (ArrayList<Guerreiro> vetor : listaNG) {
+        for (ArrayList<Guerreiro> vetor : lista) {
             for (Guerreiro warrior : vetor) {
                 if (idadeMaior < warrior.getIdade()) {
                     maisVelho = warrior;
@@ -79,16 +70,6 @@ public class QuestoesDoTrabalho {
                 }
             }
         }
-
-        for (ArrayList<Guerreiro> vetor : listaAE) {
-            for (Guerreiro warrior : vetor) {
-                if (idadeMaior < warrior.getIdade()) {
-                    maisVelho = warrior;
-                    idadeMaior = maisVelho.getIdade();
-                }
-            }
-        }
-
         return maisVelho;
     }
 
@@ -96,11 +77,11 @@ public class QuestoesDoTrabalho {
         ArrayList<Guerreiro> armazenarLista = listaNG.get(0);
         Guerreiro armazenarVelho = armazenarLista.get(0);
 
-        armazenarVelho = percorrer(listaNG, listaAE, armazenarVelho);
+        armazenarVelho = percorrer(listaNG, armazenarVelho);
+        armazenarVelho = percorrer(listaAE, armazenarVelho);
 
         System.out.println("\n=======| Guerreiro Mais Velho |======");
-        System.out.println("Nome: " + armazenarVelho.getClass().getSimpleName() + " " + armazenarVelho.getNome() + " Idade: " + armazenarVelho.getIdade() + " Peso: " + armazenarVelho.getPeso() + " Energia: " + armazenarVelho.getEnergia());
-
+        System.out.println("O " + armazenarVelho.getClass().getSimpleName() + " " + armazenarVelho.getNome() + " é o mais velho com " + armazenarVelho.getIdade() + " anos e " + armazenarVelho.getPeso() + " kilos.");
     }
 
     public static void ultimoMorreuUltimoAtk() {
@@ -117,7 +98,7 @@ public class QuestoesDoTrabalho {
         System.out.println("=====| Dados do Ultimo A Atacar| =====");
         System.out.println("O " + atacante.getClass().getSimpleName() + " de nome " + atacante.getNome() + " idade " + atacante.getIdade() + " e peso " + atacante.getPeso() + ", deu o ultimo golpe no "
                 + g_dead.getClass().getSimpleName() + " " + g_dead.getNome()
-                + " de " + g_dead.getIdade() + " anos e " + g_dead.getPeso());
+                + " de " + g_dead.getIdade() + " anos e " + g_dead.getPeso() + " kilos.");
     }
 
     public static void determinarVencedor() {
@@ -128,6 +109,5 @@ public class QuestoesDoTrabalho {
         } else {
             System.out.println("Os vencedores são os Atlánticos e Egípcios!\n");
         }
-
     }
 }

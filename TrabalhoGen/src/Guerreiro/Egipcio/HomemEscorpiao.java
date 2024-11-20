@@ -20,30 +20,23 @@ public class HomemEscorpiao extends Egipcio{
     }
     
     @Override
-    public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef){
-        if(this.isProvocado()){
+    public void atacar(ArrayList<ArrayList<Guerreiro>> listaAtacante, ArrayList<ArrayList<Guerreiro>> listaDefesa, int posAtk, int posDef) {
+        if (this.isProvocado()) {
             posDef = this.getIndiceProvocado();
-            Guerreiro defensor = listaDefesa.get(posDef).get(0);
-            QuestoesDoTrabalho.morreuMatou(this, defensor);
-            defensor.setEnergia(defensor.getEnergia() - 20);
-            if (defensor.getEnergia() <= 0) {
-                 if (defensor instanceof GiganteDePedra) {
-                    ((GiganteDePedra) defensor).tirarProvocar(listaAtacante, posDef);
-                    defensor.morrer(listaDefesa, posDef);
-                }
-            }else{
-                defensor.setEnvenenado(true);
-            }
-        }else{
-            Guerreiro defensor = listaDefesa.get(posDef).get(0);
-            QuestoesDoTrabalho.morreuMatou(this, defensor);
-            defensor.setEnergia(defensor.getEnergia() - 20);
-            if (defensor.getEnergia() <= 0) {
+        }
+        Guerreiro defensor = listaDefesa.get(posDef).get(0);
+        QuestoesDoTrabalho.morreuMatou(this, defensor);
+        defensor.setEnergia(defensor.getEnergia() - 20);
+        if (defensor.getEnergia() <= 0) {
+            if (defensor instanceof GiganteDePedra && this.isProvocado()) {
+                ((GiganteDePedra) defensor).tirarProvocar(listaAtacante, posDef);
                 defensor.morrer(listaDefesa, posDef);
-            }else{
-                defensor.setEnvenenado(true);
+            } else {
+                defensor.morrer(listaDefesa, posDef);
             }
-        } 
+        } else {
+            defensor.setEnvenenado(true);
+        }
     }
     
     @Override

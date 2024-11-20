@@ -24,7 +24,10 @@ public class MainTrab {
         
         // Chamadas para exibir dados de guerreiros, maior peso e guerreiro mais velho
         System.out.println("\n=======| Dados Dos Guerreiros |======\n");
-        QuestoesDoTrabalho.exibirDadosGuerreiros(Arena.getListaNG(), Arena.getListaAE());
+        System.out.println("============= Guerreiros Gregos e Nórdicos =============");
+        QuestoesDoTrabalho.exibirDadosGuerreiros(Arena.getListaNG());
+        System.out.println("\n============= Guerreiros Atlanticos e Egípcios =============");
+        QuestoesDoTrabalho.exibirDadosGuerreiros(Arena.getListaAE());
 
         double maiorPesoNG = QuestoesDoTrabalho.somaPesos(Arena.getListaNG());
         System.out.println("\n=======| Soma Dos Pesos Dos Gregos e Nórdicos |======");
