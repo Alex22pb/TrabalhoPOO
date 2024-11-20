@@ -74,8 +74,23 @@ public class QuestoesDoTrabalho {
     }
 
     public static void maisVelho(ArrayList<ArrayList<Guerreiro>> listaNG, ArrayList<ArrayList<Guerreiro>> listaAE) {
-        ArrayList<Guerreiro> armazenarLista = listaNG.get(0);
-        Guerreiro armazenarVelho = armazenarLista.get(0);
+        Guerreiro armazenarVelho = null;
+        if(!listaNG.get(0).isEmpty()){
+            ArrayList<Guerreiro> armazenarLista = listaNG.get(0);
+            armazenarVelho = armazenarLista.get(0);
+        }else{
+            boolean verificar = false;
+            int i = 1;
+            while(verificar == false){
+                if(!listaNG.get(i).isEmpty()){
+                    ArrayList<Guerreiro> armazenarLista = listaNG.get(i);
+                    armazenarVelho = armazenarLista.get(0);
+                    verificar = true;
+                }else{
+                    i++;
+                }
+            }
+        }
 
         armazenarVelho = percorrer(listaNG, armazenarVelho);
         armazenarVelho = percorrer(listaAE, armazenarVelho);

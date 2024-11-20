@@ -1,5 +1,0 @@
-1 Junin 30 70
-2 Du 24 75
-3 Dudu 23 77
-4 Edu 55 80
-5 Bruno 23 67
